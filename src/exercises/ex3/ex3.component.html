@@ -1,0 +1,27 @@
+<p><b>Display day of the date 1/7</b></p>
+<!--<input matInput type="text" placeholder="Clearable input" [(ngModel)]="showday_txt">-->
+  <!-- <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''"> -->
+   <!-- <mat-icon>close</mat-icon>-->
+  <!-- </button> -->
+<input type="text" [(ngModel)]="showday_txt" />
+<br>
+
+<!-- <button type="button" (click)="getday(showday_txt)">Get day</button><br> -->
+<button mat-raised-button color="primary" (click)="getday(showday_txt)">Click</button>
+{{showday}}
+
+  <br>
+  <br>
+  <br>
+  
+<button mat-raised-button color="primary" (click)="toggle()">{{buttonName}}</button>
+<br>
+<div *ngIf="action;then show; else hide"></div>
+<ng-template #show><b>List of Names</b>
+	<ul>
+		<li *ngFor="let name of names">
+			{{ name }}
+		</li>
+	</ul>
+</ng-template>
+<ng-template #hide>Sorry!No data to Display.Please click Show button!</ng-template>

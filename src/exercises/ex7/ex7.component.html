@@ -1,0 +1,129 @@
+<!-- <form (ngSubmit)="onSubmit()" [formGroup]="flagForm" novalidate>
+<div class="example-container">
+  <mat-form-field>
+        <input matInput placeholder="Enter your first Name" [formControl]="fName" required>
+        <mat-error *ngIf="fName.invalid">{{getfNameErrorMessage()}}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    
+    <input matInput placeholder="Enter your lName" [formControl]="lName" required>
+    <mat-error *ngIf="lName.invalid">{{getlNameErrorMessage()}}</mat-error>
+
+  </mat-form-field>
+
+
+  <h4>State select</h4>
+  <mat-form-field>
+    <mat-label>Favorite state</mat-label>
+    <mat-select [(ngModel)]="selectedValue" name="state">
+      <mat-option *ngFor="let state of states" [value]="state.value">
+        {{state.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <p> Selected state: {{selectedValue}} </p>
+  <br>
+  <h4>Country select</h4>
+  <mat-form-field>
+    <mat-label>Favorite Country</mat-label>
+    <mat-select [(ngModel)]="selectedValue" name="Country">
+      <mat-option *ngFor="let country of countries" [value]="country.value">
+        {{country.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <p> Selected country: {{selectedValue}} </p>
+
+
+  <mat-form-field>
+    <input matInput placeholder="Enter your email" [formControl]="email" required>
+    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+  </mat-form-field>
+
+
+
+  <button mat-raised-button color="primary" [disabled]="!flagForm.valid">Create</button>
+  <button type="button" mat-raised-button color="warn" >Cancel</button>
+
+</div>
+</form>
+ -->
+
+
+
+
+<mat-card>
+
+  <mat-card-title>
+    Angular Material Component With Angular 7
+  </mat-card-title>
+
+
+  <mat-card-content>
+    <form [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm.value)">
+      <table>
+        <tr>
+          <td>
+            <mat-form-field class="demo-full-width">
+              <input formControlName="FirstName" matInput placeholder="First Name">
+            </mat-form-field>
+            <mat-error>
+              <span *ngIf="!regiForm.get('FirstName').valid && regiForm.get('FirstName').touched">Please enter First
+                Name !!!</span>
+            </mat-error>
+          </td>
+          <td>
+            <mat-form-field class="demo-full-width">
+              <input formControlName="LastName" matInput placeholder="Last Name">
+            </mat-form-field>
+            <mat-error>
+              <span *ngIf="!regiForm.get('LastName').valid && regiForm.get('LastName').touched">Please enter Last Name
+                !!!</span>
+            </mat-error>
+          </td>
+        </tr>
+        <tr>
+                <td>
+                  <h4>State select</h4>
+        <mat-form-field>
+          <mat-label>Favorite state</mat-label>
+          <mat-select  [ngModelOptions]="{standalone: true}"  [(ngModel)]="selectedValue" name="state">
+            <mat-option *ngFor="let state of states" [value]="state.value">
+              {{state.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <p> Selected state: {{selectedValue}} </p>
+        <br>
+                </td>
+              </tr>
+              <tr>
+               <td>
+                <h4>Country select</h4>
+        <mat-form-field>
+          <mat-label>Favorite Country</mat-label>
+          <mat-select  [ngModelOptions]="{standalone: true}"  [(ngModel)]="selectedValue" name="Country">
+            <mat-option *ngFor="let country of countries" [value]="country.value">
+              {{country.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <p> Selected country: {{selectedValue}} </p>
+              
+              </td>
+              </tr>
+        <tr>
+          <td colspan="2" class="content-center">
+            <button mat-raised-button color="accent" [disabled]="!regiForm.valid"> Submit</button>
+          </td>
+        </tr>
+
+
+        <tr>
+          <td> </td>
+        </tr>
+      </table>
+    </form>
+  </mat-card-content>
+</mat-card>
